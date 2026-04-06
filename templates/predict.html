@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container form-page">
+    <div class="section-heading">
+        <h1>Manual Transaction Fraud Check</h1>
+        <p>Enter realistic transaction values to predict whether the payment is fraudulent.</p>
+    </div>
+
+    <form class="glass project-form" method="POST">
+        <div class="form-grid">
+            <div>
+                <label>Transaction Amount</label>
+                <input type="number" name="transaction_amount" step="0.01" min="0" required>
+            </div>
+            <div>
+                <label>Transaction Time (0-24 hour)</label>
+                <input type="number" name="transaction_time" step="0.01" min="0" max="24" required>
+            </div>
+            <div>
+                <label>Location Distance (km)</label>
+                <input type="number" name="location_distance" step="0.01" min="0" required>
+            </div>
+            <div>
+                <label>Cardholder Age</label>
+                <input type="number" name="cardholder_age" step="1" min="18" required>
+            </div>
+            <div>
+                <label>Merchant Risk Score (0-100)</label>
+                <input type="number" name="merchant_risk_score" step="0.01" min="0" max="100" required>
+            </div>
+            <div>
+                <label>Device Trust Score (0-100)</label>
+                <input type="number" name="device_trust_score" step="0.01" min="0" max="100" required>
+            </div>
+        </div>
+
+        <div class="checkbox-row">
+            <label class="checkline">
+                <input type="checkbox" name="is_international" value="1">
+                International Transaction
+            </label>
+        </div>
+
+        <button class="btn primary" type="submit">Predict Fraud Risk</button>
+    </form>
+</section>
+{% endblock %}

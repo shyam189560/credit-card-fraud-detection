@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container section">
+    <div class="glass about-box">
+        <h1>About This College Project</h1>
+        <p>
+            This Credit Card Fraud Detection system is an ML-based full-stack web application.
+            It demonstrates how banking transactions can be analyzed for suspicious activity using
+            behavioral and risk-based features.
+        </p>
+        <div class="mini-grid">
+            <div class="metric-card"><span>Project Type</span><strong>Major / Minor College Project</strong></div>
+            <div class="metric-card"><span>Backend</span><strong>Flask</strong></div>
+            <div class="metric-card"><span>Database</span><strong>SQLite</strong></div>
+            <div class="metric-card"><span>ML Model</span><strong>Random Forest</strong></div>
+        </div>
+        <a class="btn primary" href="{{ url_for('train_demo_model') }}">Retrain Demo Model</a>
+    </div>
+</section>
+{% endblock %}

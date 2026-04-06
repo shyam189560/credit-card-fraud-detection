@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container">
+    <div class="section-heading">
+        <h1>Prediction History</h1>
+        <p>Latest 50 records saved in the SQLite database.</p>
+    </div>
+
+    <div class="glass table-wrap">
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Amount</th>
+                        <th>Time</th>
+                        <th>Distance</th>
+                        <th>Age</th>
+                        <th>Merchant Risk</th>
+                        <th>Device Trust</th>
+                        <th>International</th>
+                        <th>Probability</th>
+                        <th>Label</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        <td>{{ row['id'] }}</td>
+                        <td>{{ row['transaction_amount'] }}</td>
+                        <td>{{ row['transaction_time'] }}</td>
+                        <td>{{ row['location_distance'] }}</td>
+                        <td>{{ row['cardholder_age'] }}</td>
+                        <td>{{ row['merchant_risk_score'] }}</td>
+                        <td>{{ row['device_trust_score'] }}</td>
+                        <td>{{ row['is_international'] }}</td>
+                        <td>{{ '%.2f'|format(row['fraud_probability'] * 100) }}%</td>
+                        <td>{{ row['prediction_label'] }}</td>
+                        <td>{{ row['created_at'] }}</td>
+                    </tr>
+                    {% else %}
+                    <tr><td colspan="11">No records yet. Run a prediction first.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

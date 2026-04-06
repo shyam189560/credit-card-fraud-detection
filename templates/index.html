@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero container">
+    <div class="hero-text reveal-up">
+        <span class="badge">Official College Project</span>
+        <h1>Credit Card Fraud Detection <span class="headline-shine">Intelligence Platform</span></h1>
+        <p>
+            A premium full-stack ML system that analyzes transaction behavior,
+            estimates fraud probability in real time, and stores predictions for project demonstration.
+        </p>
+        <div class="hero-actions">
+            <a class="btn primary magnetic" href="{{ url_for('predict') }}">Start Prediction</a>
+            <a class="btn secondary magnetic" href="{{ url_for('batch_predict') }}">Upload CSV</a>
+        </div>
+        <div class="hero-mini-stats">
+            <div class="mini-panel glass tilt-card">
+                <span>Detection Mode</span>
+                <strong>Manual + Batch</strong>
+            </div>
+            <div class="mini-panel glass tilt-card">
+                <span>Storage</span>
+                <strong>SQLite History</strong>
+            </div>
+            <div class="mini-panel glass tilt-card">
+                <span>Deployment</span>
+                <strong>Render / Railway</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-visual glass tilt-card reveal-up">
+        <div class="dashboard-top">
+            <span class="signal-dot"></span>
+            <span class="signal-dot"></span>
+            <span class="signal-dot"></span>
+        </div>
+        <div class="risk-panel">
+            <div>
+                <p class="muted-label">Live Fraud Monitor</p>
+                <h3>Transaction Risk Scanner</h3>
+            </div>
+            <div class="ring-wrap">
+                <div class="ring">
+                    <span>92%</span>
+                </div>
+            </div>
+        </div>
+        <div class="feature-bars">
+            <div><span>Merchant Risk</span><b style="width: 88%"></b></div>
+            <div><span>Device Trust</span><b style="width: 62%"></b></div>
+            <div><span>Geo Distance</span><b style="width: 74%"></b></div>
+        </div>
+        <div class="hero-card-grid">
+            <div class="info-tile">
+                <small>Model</small>
+                <strong>Random Forest</strong>
+            </div>
+            <div class="info-tile">
+                <small>Output</small>
+                <strong>Probability + Label</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats container grid-3 section-gap">
+    <div class="glass stat-card tilt-card reveal-up"><h3>Frontend</h3><p>Modern responsive interface with hover effects, cursor glow, and motion interactions.</p></div>
+    <div class="glass stat-card tilt-card reveal-up"><h3>Backend</h3><p>Flask-powered routes, forms, validation, and database-connected prediction history.</p></div>
+    <div class="glass stat-card tilt-card reveal-up"><h3>Machine Learning</h3><p>Integrated fraud prediction model for detecting suspicious payment behavior patterns.</p></div>
+</section>
+
+<section class="section container">
+    <div class="section-heading reveal-up">
+        <span class="sub-badge">System Workflow</span>
+        <h2>How the intelligent detection system works</h2>
+        <p>Designed in a college-project style with a professional product experience.</p>
+    </div>
+    <div class="steps grid-3">
+        <div class="glass step tilt-card reveal-up"><span>01</span><h3>Collect Inputs</h3><p>Enter transaction amount, time, distance, merchant risk, device trust, and international status.</p></div>
+        <div class="glass step tilt-card reveal-up"><span>02</span><h3>Run Prediction</h3><p>The model evaluates transaction patterns and calculates the probability of fraudulent activity.</p></div>
+        <div class="glass step tilt-card reveal-up"><span>03</span><h3>Store Results</h3><p>Each result can be recorded in SQLite for reporting, auditing, and project presentation purposes.</p></div>
+    </div>
+</section>
+{% endblock %}

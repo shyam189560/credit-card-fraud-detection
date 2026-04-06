@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container result-page">
+    <div class="glass result-box {{ 'danger-border' if label == 'Fraud Detected' else 'safe-border' }}">
+        <h1>{{ label }}</h1>
+        <p class="probability">Fraud Probability: <strong>{{ probability }}%</strong></p>
+        <div class="mini-grid">
+            {% for key, value in form_data.items() %}
+            <div class="metric-card">
+                <span>{{ key.replace('_', ' ').title() }}</span>
+                <strong>{{ value }}</strong>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="hero-actions">
+            <a href="{{ url_for('predict') }}" class="btn primary">Check Another</a>
+            <a href="{{ url_for('history') }}" class="btn secondary">View History</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container form-page">
+    <div class="section-heading">
+        <h1>Batch Fraud Screening</h1>
+        <p>Upload a CSV file with the required fraud input columns to analyze many transactions at once.</p>
+    </div>
+
+    <form class="glass project-form" method="POST" enctype="multipart/form-data">
+        <label>Upload CSV File</label>
+        <input type="file" name="csv_file" accept=".csv" required>
+        <button class="btn primary" type="submit">Analyze CSV</button>
+        <p class="helper">Required columns: transaction_amount, transaction_time, location_distance, cardholder_age, merchant_risk_score, device_trust_score, is_international</p>
+    </form>
+
+    {% if batch_results %}
+    <div class="glass table-wrap">
+        <h2>Batch Preview Results</h2>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        {% for key in batch_results[0].keys() %}
+                        <th>{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in batch_results %}
+                    <tr>
+                        {% for value in row.values() %}
+                        <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
